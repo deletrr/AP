@@ -1,4 +1,4 @@
-CREATE DATABASE "product"
+CREATE DATABASE "aparecida"
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'

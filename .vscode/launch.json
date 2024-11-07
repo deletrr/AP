@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AparecidadonorteApplication<aparecida>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.aparecida.aparecida.AparecidadonorteApplication",
+            "projectName": "aparecida",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
