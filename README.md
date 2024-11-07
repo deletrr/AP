@@ -43,7 +43,7 @@ POST /Usuario/login - Realiza login no aplicativo.
 
 POST /Usuario/login - Realiza login no aplicativo.
 
->>>>>>> d0b540c832cc15eb1113de08aa28c0c205fefe42
+
 POST /Usuario - Registra um novo usuário no aplicativo.
 ```
 
