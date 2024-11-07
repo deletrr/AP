@@ -26,10 +26,24 @@ A API fornece os seguintes endpoints:
 ```markdown
 GET /- Recupera uma lista de todos os *. (todos os usuários autenticados)
 
-POST / - Registra um novo *, (acesso ADMIN requerido).
+POST /Usuario - Registra um novo *, (acesso ADMIN requerido).
+------------------------------------------------
+{
+    "nome": "João Silva",
+    "email": "joao.silva@email.com",
+    "senha": "minhaSenhacriptografada",
+    "tipo_usuario": "ADM"
+}
+
+<<<<<<< HEAD
+POST /Usuario/login - Realiza login no aplicativo.
+
+=======
+------------------------------------------------
 
 POST /Usuario/login - Realiza login no aplicativo.
 
+>>>>>>> d0b540c832cc15eb1113de08aa28c0c205fefe42
 POST /Usuario - Registra um novo usuário no aplicativo.
 ```
 
