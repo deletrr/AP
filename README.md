@@ -57,7 +57,7 @@ ADMIN -> Função de administrador para gerenciar parceiros (registrar novos par
 ## Banco de Dados
 O projeto utiliza o [PostgresSQL](https://www.postgresql.org/) como banco de dados.
 #
-
+>>>>>>> mude as configuraçoes do banco em application.proerties
 ---------------------------------------------------------------------------------------------------------------
 
 
