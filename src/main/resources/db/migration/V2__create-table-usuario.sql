@@ -2,8 +2,8 @@ CREATE TABLE Usuario (
     id_usuario SERIAL PRIMARY KEY,
     nome VARCHAR(100),
     email VARCHAR(100) UNIQUE,
-    senha VARCHAR(100),
-    tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('ADM', 'Coordenador')) NOT NULL
+    senha VARCHAR(100) NOT NULL,
+    tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('ADM', 'Coordenador'))
 );
 
 CREATE TABLE Onibus (

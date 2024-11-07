@@ -28,9 +28,9 @@ GET /- Recupera uma lista de todos os *. (todos os usuários autenticados)
 
 POST / - Registra um novo *, (acesso ADMIN requerido).
 
-POST /auth/login - Realiza login no aplicativo.
+POST /Usuario/login - Realiza login no aplicativo.
 
-POST /auth/register - Registra um novo usuário no aplicativo.
+POST /Usuario - Registra um novo usuário no aplicativo.
 ```
 
 ## Autenticação
