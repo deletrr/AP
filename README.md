@@ -43,7 +43,7 @@ POST /Usuario/login - Realiza login no aplicativo.
 
 POST /Usuario/login - Realiza login no aplicativo.
 
->>>>>>> d0b540c832cc15eb1113de08aa28c0c205fefe42
+
 POST /Usuario - Registra um novo usuário no aplicativo.
 ```
 
@@ -57,7 +57,7 @@ ADMIN -> Função de administrador para gerenciar parceiros (registrar novos par
 ## Banco de Dados
 O projeto utiliza o [PostgresSQL](https://www.postgresql.org/) como banco de dados.
 #
-
+>>>>>>> mude as configuraçoes do banco em application.proerties
 ---------------------------------------------------------------------------------------------------------------
 
 
