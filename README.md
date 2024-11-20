@@ -156,7 +156,13 @@ Descrição: Remove o registro de venda correspondente ao ID fornecido.
 
 ```json
 {
-    "nomeco": "João Silva",
-    "numero_contato": "11123456789",
-    "foto": "https://exemplo.com/foto_joao.jpg"
+   {
+        
+        "nomeco": "Ricardo",
+        "numero_contato": "33333333333333",
+        "foto": "/coordenadores_fotos/silhueta.jpg",
+        "modelo": "Scania",
+        "onibus_placa": "ABC5678",
+        "numero_assentos": 50
+    },
 }
