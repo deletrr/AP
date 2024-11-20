@@ -5,13 +5,13 @@ document.querySelector("form").addEventListener("submit", async function (event)
   const nome = document.getElementById("nome").value;
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
-
+  
   // Cria o objeto JSON com os dados
   const data = {
     nome: nome,
     email: email,
-    senha: senha
-  };
+    senha: senha,
+    };
 
   try {
     // Envia os dados usando fetch com método POST

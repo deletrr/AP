@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edição de Coordenador e Ônibus</title>
+  <link rel="stylesheet" href="/css/telaLogincor.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <form id="formEdicao" method="post">
+      <h1>Edição de Coordenador</h1>
+
+      <!-- Select para coordenadores -->
+      <div class="input-box">
+        <select id="coordenadorSelect" name="coordenador_id" required>
+          <option value="">Selecione um Coordenador</option>
+        </select>
+      </div>
+
+      <!-- Campos do Coordenador -->
+      <div class="input-box">
+        <input type="text" placeholder="Nome do Coordenador" id="nomeco" name="nomeco" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Número de Contato" id="numero_contato" name="numero_contato" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="URL da Foto" id="foto" name="foto" required>
+      </div>
+
+      <!-- Campos do Ônibus -->
+      <div class="input-box">
+        <input type="text" placeholder="Modelo do Ônibus" id="modelo" name="modelo" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Placa do Ônibus" id="placa" name="placa" maxlength="8" required>
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Número de Assentos" id="numero_assentos" name="numero_assentos" step="1" required>
+      </div>
+
+      <!-- Botões -->
+      <button type="submit" class="btn">Salvar Edição</button>
+      <button type="button" id="btnDeletar" class="btn">Deletar Coordenador</button>
+      <div class="register-link">
+        <p><a href="administracao.html">Voltar</a></p>
+      </div>
+    </form>
+  </div>
+  
+  <script src="/js/formcompraformatacao.js"></script>
+  <script src="/js/editarCoordenador.js"></script>
+  <script src="/js/perfilcord.js"></script>
+  
+</body>
+</html>

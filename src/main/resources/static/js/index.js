@@ -6,6 +6,12 @@ hamburger.addEventListener("click", () => {
   navList.classList.toggle("open");
 });
 
+const $html = document.querySelector('html')
+const $checkbox = document.querySelector('#switch')
+
+$checkbox.addEventListener('change', function() {
+  $html.classList.toggle('dark-mode')
+})
 // Discount Media
 const video = document.querySelector(".video");
 const button = document.querySelector(".video-control");

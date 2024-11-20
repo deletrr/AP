@@ -82,3 +82,81 @@ O projeto utiliza o [PostgresSQL](https://www.postgresql.org/) como banco de dad
 
 
 ---------------------------------------------------------------------------------------------------------------
+
+
+
+## Formulario de pagamentos
+
+
+## Endpoints
+
+### **1. Criar uma nova venda (POST)**
+
+**URL**: `localhost:8080/compras`
+
+**Método HTTP**: `POST`
+
+**Body da Requisição**:
+
+```json
+{
+  "nomec": "professor filho da puta",
+  "endereco": "Rua das Flores, 123",
+  "numero": "123",
+  "cep": "12345678",
+  "assento": "A12",
+  "metodoPagamento": "Cartão de Crédito",
+  "nomeVendedor": "Carlos Souza",
+  "dataCompra": "2024-11-16",
+  "horarioCompra": "14:30:00",
+  "valorPago": 250.75,
+  "cpf": "22345678901",
+  "onibus": "22331dsd",
+  "status": "cancelado"
+}
+```
+
+
+###Consultar, Atualizar ou Deletar uma venda (GET/PUT/DELETE)
+
+
+URL: localhost:8080/compras/{id}
+
+Método HTTP: GET, PUT, DELETE
+
+Parâmetros:
+
+{id}: ID único da venda, que pode ser obtido após a criação de uma nova venda.
+
+GET: Consultar uma venda
+Descrição: Recupera os detalhes da venda correspondente ao ID fornecido.
+
+PUT: Atualizar uma venda
+Descrição: Atualiza os detalhes de uma venda existente. Os parâmetros a serem atualizados devem ser passados no corpo da requisição.
+
+DELETE: Deletar uma venda
+Descrição: Remove o registro de venda correspondente ao ID fornecido.
+
+
+------------------------------------------------------------------------------------
+
+## Coordenador
+
+## Endpoints
+
+### 1. **Criar Coordenador (POST)**
+
+**URL**: `/coordenadores`
+
+**Método**: `POST`
+
+**Descrição**: Cria um novo coordenador.
+
+**Exemplo de Requisição (Body)**:
+
+```json
+{
+    "nomeco": "João Silva",
+    "numero_contato": "11123456789",
+    "foto": "https://exemplo.com/foto_joao.jpg"
+}

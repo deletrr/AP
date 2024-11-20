@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página do Administrador</title>
+  <link rel="stylesheet" href="/css/formcompra.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <form id="formCompra">
+      <h1>Formulário de Compra</h1>
+    
+      <div class="input-box">
+        <label for="nomecp">Nome Completo:</label>
+        <input type="text" id="nomecp" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas">
+      </div>
+
+      <div class="input-box">
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+      </div>
+
+      <div class="input-box">
+        <label for="contato">Telefone:</label>
+        <input type="text" id="contato">
+      </div>
+    
+      <div class="input-box">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" placeholder="" maxlength="14" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="O CPF deve conter 11 números no formato xxx.xxx.xxx-xx">
+      </div>
+    
+      <div class="input-box">
+        <label for="cep">Cep:</label>
+        <input type="text" id="cep" maxlength="8" required pattern="\d{8}" title="O CEP deve conter apenas números">
+      </div>
+    
+      <div class="input-box">
+        <label for="endcp">Endereço:</label>
+        <input type="text" id="endcp" required>
+      </div>
+    
+      <div class="input-box">
+        <label for="numero">Número:</label>
+        <input type="text" id="numero" required pattern="\d+" title="O número deve conter apenas números">
+      </div>
+              
+      <div class="input-box">
+        <label for="metodoPagamento">Método de Pagamento:</label>
+        <select id="metodoPagamento" required>
+          <option value="cartao">Cartão de Crédito</option>
+          <option value="boleto">Boleto</option>
+          <option value="pix">Pix</option>
+        </select>
+      </div>
+    
+      <div class="input-box">
+        <label for="nomevendedorc">Nome do Vendedor:</label>
+        <input type="text" id="nomevendedorc" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas">
+      </div>
+    
+      <div class="input-box">
+        <label for="onibus">Ônibus:</label>
+        <select id="onibus" required>
+          <option value="" disabled selected>Selecione o ônibus</option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <label for="assento">Assento:</label>
+        <select id="assento" required>
+          
+        </select>
+      </div>
+    
+      <div class="input-box">
+        <label for="datac">Data:</label>
+        <input type="date" id="datac" required>
+      </div>
+    
+      <div class="input-box">
+        <label for="horario">Horário:</label>
+        <input type="time" id="horario" required>
+      </div>
+    
+      <div class="input-box">
+        <label for="valorpc">Valor Pago: R$</label>
+        <input type="text" id="valorpc" required pattern="\d+(\.\d{1,2})?" title="Formato de valor inválido">
+      </div>
+    
+      <button type="submit" class="btn">Finalizar</button>
+    </form>
+  </div>
+    <script>
+    // Função para formatar o valor no padrão R$ 
+    document.getElementById("valorpc").addEventListener("input", function(event) {
+      let valor = event.target.value;
+      valor = valor.replace(/[^\d,]/g, '');  // Remove tudo que não for número ou vírgula
+      valor = valor.replace(/^(\d{1,2})(\d{3})/, "$1,$2"); // Formata o valor com vírgula
+      if (valor.length > 6) {
+        valor = valor.replace(/(\d)(\d{3})(\d{3})$/, "$1.$2.$3");
+      } else if (valor.length > 3) {
+        valor = valor.replace(/(\d)(\d{3})$/, "$1.$2");
+      }
+      event.target.value = valor;
+    });
+    
+    // Função para validar e formatar o CPF
+    document.getElementById("cpf").addEventListener("input", function(event) {
+      let cpf = event.target.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+      if (cpf.length <= 3) {
+        cpf = cpf.replace(/(\d{3})/, "$1");
+      } else if (cpf.length <= 6) {
+        cpf = cpf.replace(/(\d{3})(\d{3})/, "$1.$2");
+      } else if (cpf.length <= 9) {
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3");
+      } else if (cpf.length <= 11) {
+        cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+      }
+      event.target.value = cpf;
+    });
+    </script>
+    
+  </div>
+  <div class="register-link">
+    <p> <a href="administracao.html">Voltar</a></p>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/formcompra.js"></script>
+  <script src="/js/viacep.js"></script>
+  <script src="/js/formcompraassentos.js"></script>
+</body>
+</html>

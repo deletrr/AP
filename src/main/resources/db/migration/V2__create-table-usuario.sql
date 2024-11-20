@@ -1,61 +1,77 @@
-CREATE TABLE Usuario (
+-- Tabela de usuários
+CREATE TABLE usuario (
     id_usuario SERIAL PRIMARY KEY,
-    nome VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL,
     tipo_usuario VARCHAR(20) CHECK (tipo_usuario IN ('ADM', 'Coordenador'))
 );
 
-CREATE TABLE Onibus (
-    id_onibus SERIAL PRIMARY KEY,
-    modelo VARCHAR(50),
-    placa VARCHAR(20),
-    coordenador_id INT,
-    FOREIGN KEY (coordenador_id) REFERENCES Usuario(id_usuario)
+-- Tabela de coordenadores
+CREATE TABLE coordenador (
+    id SERIAL PRIMARY KEY,
+    nomeco VARCHAR(255) NOT NULL,
+    numero_contato VARCHAR(15) NOT NULL CHECK (numero_contato ~ '^\d{10,15}$'), -- Apenas números com 10 a 15 dígitos
+    foto VARCHAR(255),
+    modelo VARCHAR(50) NOT NULL,
+    onibus_placa VARCHAR(20) UNIQUE NOT NULL,
+    numero_assentos VARCHAR(255) NOT NULL
+ 
+    
+ 
 );
 
-CREATE TABLE Poltrona (
-    id_poltrona SERIAL PRIMARY KEY,
-    numero INT NOT NULL,
-    id_onibus INT,
-    disponivel BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY (id_onibus) REFERENCES Onibus(id_onibus)
+-- Tabela de assentos
+CREATE TABLE assento (
+    id SERIAL PRIMARY KEY,
+    onibus_placa VARCHAR(20) NOT NULL,
+    assento VARCHAR(255) NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('disponivel', 'ocupado', 'pendente')),
+    FOREIGN KEY (onibus_placa) REFERENCES coordenador(onibus_placa)
 );
 
-CREATE TABLE Passageiro (
-    id_passageiro SERIAL PRIMARY KEY,
-    nome VARCHAR(100),
-    documento VARCHAR(50),
-    tipo_documento VARCHAR(50) CHECK (tipo_documento IN ('RG', 'CNH', 'Passaporte', 'CarteiraTrabalho', 'CertidaoNascimento', 'AutorizacaoJudicial')) NOT NULL,
-    data_nascimento DATE
+-- Tabela de compras
+CREATE TABLE compra (
+    id SERIAL PRIMARY KEY,
+    nomec VARCHAR(255) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    contato VARCHAR(40) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    assento VARCHAR(255) NOT NULL,
+    metodo_pagamento VARCHAR(50) NOT NULL,
+    nome_vendedor VARCHAR(255) NOT NULL,
+    data_compra DATE NOT NULL,
+    horario_compra TIME NOT NULL,
+    valor_pago NUMERIC(10, 2) NOT NULL CHECK (valor_pago > 0), -- Valor positivo
+    cpf VARCHAR(14) NOT NULL,
+    cep VARCHAR(8) NOT NULL,
+    onibus VARCHAR(20) NOT NULL, -- Referência à placa do ônibus
+    numero VARCHAR(15) NOT NULL,
+    status VARCHAR(20) CHECK (status IN ('pago', 'cancelado','pendente' ))
+    
+    
 );
 
-CREATE TABLE Passagem (
-    id_passagem SERIAL PRIMARY KEY,
-    id_poltrona INT,
-    data_viagem DATE,
-    destino VARCHAR(100),
-    origem VARCHAR(100),
-    id_passageiro INT,
-    FOREIGN KEY (id_poltrona) REFERENCES Poltrona(id_poltrona),
-    FOREIGN KEY (id_passageiro) REFERENCES Passageiro(id_passageiro)
-);
+-- Funcoes e Triggers
 
-CREATE TABLE ListaEspera (
-    id_espera SERIAL PRIMARY KEY,
-    id_passagem INT,
-    id_passageiro INT,
-    prioridade INT,
-    FOREIGN KEY (id_passagem) REFERENCES Passagem(id_passagem),
-    FOREIGN KEY (id_passageiro) REFERENCES Passageiro(id_passageiro)
-);
+CREATE OR REPLACE FUNCTION inserir_assentos_para_coordenador() 
+RETURNS TRIGGER AS $$
+BEGIN
+  -- Loop para criar os assentos
+  FOR i IN 1..NEW.numero_assentos LOOP
+    INSERT INTO assento (onibus_placa, assento, status)
+    VALUES (NEW.onibus_placa, i, 'disponivel');
+  END LOOP;
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
 
-CREATE TABLE Embarque (
-    id_embarque SERIAL PRIMARY KEY,
-    id_passagem INT,
-    id_viagem INT,
-    qr_code VARCHAR(255) UNIQUE,
-    embarque_confirmado BOOLEAN DEFAULT FALSE,
-    retorno_confirmado BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (id_passagem) REFERENCES Passagem(id_passagem)
-);
+--Trigger
+
+CREATE TRIGGER trigger_inserir_assentos
+AFTER INSERT ON coordenador
+FOR EACH ROW
+EXECUTE FUNCTION inserir_assentos_para_coordenador();
+
+

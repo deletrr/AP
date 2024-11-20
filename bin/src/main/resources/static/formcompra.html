@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página do Administrador</title>
+  <link rel="stylesheet" href="/css/formc.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="">
+      <h1>Formulário de Compra</h1>
+      <div class="input-box">
+        <label for="nomecp">Nome Completo:</label>
+        <input type="text" id="nomecp" required>
+      </div>
+      <div class="input-box">
+        <label for="endcp">Endereço:</label>
+        <input type="text" id="endcp" required>
+      </div>
+      <div class="input-box">
+        <label for="assento">Assento:</label>
+        <input type="text" id="assento" required>
+      </div>
+      <div class="input-box">
+        <label>Método de Pagamento:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mpagmentoc" value="cartao" required> Cartão de Crédito</label>
+          <label><input type="radio" name="mpagmentoc" value="boleto"> Boleto</label>
+          <label><input type="radio" name="mpagmentoc" value="pix"> Pix</label>
+        </div>
+      </div>
+      <div class="input-box">
+        <label for="nomevendedorc">Nome do Vendedor:</label>
+        <input type="text" id="nomevendedorc" required>
+      </div>
+      <div class="input-box">
+        <label for="datac">Data:</label>
+        <input type="date" id="datac" required>
+      </div>
+      <div class="input-box">
+        <label for="valorpc">Valor Pago: R$</label>
+        <input type="text" id="valorpc" required>
+      </div>
+      <button type="submit" class="btn">Finalizar Compra</button>
+    </form>
+  </div>
+</body>
+</html>

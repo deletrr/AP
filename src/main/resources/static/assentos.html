@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Assentos</title>
+    <link rel="stylesheet" href="css/assentos.css">
+</head>
+<body>
+    <h1>Selecione seu Assento</h1>
+    <div class="bus">
+        <div class="bus-header">Ônibus Executivo</div>
+        <div class="driver-section">
+            <div class="driver-seat">Motorista</div>
+            <div class="stairs">Escada</div>
+        </div>
+        <div class="bus-layout">
+            <div class="seat-container" id="seat-container">
+                <!-- Assentos serão preenchidos dinamicamente aqui -->
+            </div>
+            <!-- Banheiro colocado atrás das poltronas 43 e 44 -->
+            <div class="bathroom">WC</div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="seat available"></div> Assento Disponível
+        </div>
+        <div class="legend-item">
+            <div class="seat sold"></div> Assento Comprado
+        </div>
+        <div class="legend-item">
+            <div class="seat selected"></div> Assento Selecionado
+        </div>
+    </div>
+
+    <div class="continue-button">
+        <button onclick="goToNextPage()">Continuar</button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+      
+    // Função para carregar os assentos
+    function carregarAssentos(placa) {
+        fetch(`http://localhost:8080/assentos/${placa}`)
+            .then(response => response.json())
+            .then(assentos => {
+                assentos.forEach(assento => {
+                    // Encontrar o elemento do assento pelo número
+                    const assentoElement = document.querySelector(`[data-seat="${assento.numeroAssento.toString().padStart(2, '0')}"]`);
+                    
+                    // Verificar o status e atualizar a classe do assento
+                    if (assento.status === "disponivel") {
+                        assentoElement.classList.add("available");
+                    } else if (assento.status === "vendido") {
+                        assentoElement.classList.add("sold");
+                    } else if (assento.status === "selecionado") {
+                        assentoElement.classList.add("selected");
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao carregar os assentos:', error);
+            });
+    }
+
+    // Obter a placa do ônibus da URL (assumindo que a URL tem o formato http://localhost:8080/assentos/{placa})
+    const urlParams = new URLSearchParams(window.location.search);
+    const placa = urlParams.get('onibusPlaca');
+
+    if (placa) {
+        carregarAssentos(placa);
+    } else {
+        console.error('Placa do ônibus não encontrada na URL.');
+    }
+</script>
+    </script>
+</body>
+</html>

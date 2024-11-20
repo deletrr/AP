@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
           if (data === "Login successful") {  
             alert("Login realizado com sucesso!");
-            window.location.href = "/index.html"; 
+            window.location.href = "/administracao.html"; 
           } else {
             alert("Credenciais inválidas. Tente novamente.");
           }

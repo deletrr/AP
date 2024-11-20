@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.bus {
+    width: 400px;
+    border-radius: 20px 20px 10px 10px;
+    background-color: #e0e0e0;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bus-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+}
+
+.driver-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.driver-seat {
+    background-color: #ff7043;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80px;
+}
+
+.stairs {
+    background-color: #607d8b;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80px;
+}
+
+.bus-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+}
+
+.seat-container {
+    display: flex;
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seat {
+    width: 45px;
+    height: 45px;
+    background-color: #4CAF50; 
+    margin: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+.aisle {
+    width: 80px;
+}
+
+.bathroom {
+    width: 130px;
+    text-align: center;
+    padding: 20px;
+    background-color: #555;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    align-self: self-end;
+    position:relative;
+    bottom: 60px;
+}
+
+.seat.zoom {
+    transform: scale(1.4); 
+    transition: transform 0.3s ease; 
+}
+
+
+.seat.sold {
+    background-color: #f44336; 
+}
+
+ 
+
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.legend-item .seat {
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+}
+
+.continue-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.continue-button button {
+    background-color: #0f2341; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continue-button button:hover {
+    background-color: #0f2341d5;
+}
+
+.foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.foto-coordenador {
+    width: 100px; /* Ajuste o tamanho da foto */
+    height: 100px; /* Tamanho igual para garantir o formato circular */
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao formato circular sem distorções */
+}
+
+#coordenador-foto {
+    display: block;
+    margin: 0 auto;
+    width: 100px; /* Ajuste o tamanho da foto */
+    height: 100px; /* Tamanho igual para garantir o formato circular */
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao formato circular sem distorções */
+}
+
+
+
+
