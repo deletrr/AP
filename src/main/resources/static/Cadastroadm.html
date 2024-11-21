@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Coordenador e Ônibus</title>
-  <link rel="stylesheet" href="/css/telaLogin.css">
+  <link rel="stylesheet" href="/css/telaLogincor.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
   <div class="wrapper">
     <form id="formCadastro" method="post">
-      <h1>Cadastro de Coordenador e Ônibus</h1>
+      <h1>Cadastro de Coordenador</h1>
       <!-- Campos do Coordenador -->
       <div class="input-box">
         <input type="text" placeholder="Nome do Coordenador" id="nomeco" name="nomeco" required>
@@ -26,7 +26,7 @@
         <input type="text" placeholder="Modelo do Ônibus" id="modelo" name="modelo" required>
       </div>
       <div class="input-box">
-        <input type="text" placeholder="Placa do Ônibus" id="placa" name="placa" required>
+        <input type="text" placeholder="Placa do Ônibus" id="placa" name="placa" maxlength="8" required>
       </div>
 
       <div class="input-box">
@@ -40,6 +40,9 @@
       </div>
     </form>
   </div>
+  
+  <script src="/js/formcompraformatacao.js"></script>
   <script src="/js/cadastroCoordenadorOnibus.js"></script>
+  
 </body>
 </html>

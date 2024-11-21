@@ -49,7 +49,7 @@ fetch("http://localhost:8080/assentos")
             assentosFiltrados.forEach(assento => {
               const option = document.createElement('option');
               option.value = assento.numeroAssento; // Atribui o número do assento como valor
-              option.textContent = `Assento ${assento.numeroAssento}`; // Exibe "Assento [número]" na opção
+              option.textContent = ` ${onibusPlaca}  - A${assento.numeroAssento}`; // Exibe "Assento [número]" na opção
               assentoSelect.appendChild(option);
             });
           }

@@ -201,7 +201,7 @@ main p {
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  gap: 25px; 
+  gap: 30px; 
 }
 
 .main-card .cards {
@@ -209,14 +209,23 @@ main p {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  gap:25px;
+  gap:20px;
+}
+
+
+.main-card .cardsadm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap:20px;
 }
 
 .main-card .cards .card {
   width: calc(20% - 20px); 
   background: #ffffff70;
   border-radius: 12px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.4s ease;
 }
@@ -233,7 +242,26 @@ main p {
   text-align: center;
 }
 
+.cardsadm .card .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
 .cards .card .content .img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  padding: 3px;
+  background: #ffc400;
+  margin-bottom: 14px;
+}
+
+.cardsadm .card .content .img {
   height: 130px;
   width: 130px;
   border-radius: 50%;

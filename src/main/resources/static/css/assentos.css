@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -93,9 +94,7 @@ h1 {
     cursor: pointer;
 }
 
-.seat.selected {
-    background-color: #ffa726;
-}
+
 
 .aisle {
     width: 80px;
@@ -124,9 +123,8 @@ h1 {
     background-color: #f44336; 
 }
 
-.seat.selected {
-    background-color: #FFC107; 
-}
+ 
+
 
 .legend {
     display: flex;
@@ -167,8 +165,28 @@ h1 {
     background-color: #0f2341d5;
 }
 
+.foto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
+.foto-coordenador {
+    width: 100px; /* Ajuste o tamanho da foto */
+    height: 100px; /* Tamanho igual para garantir o formato circular */
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao formato circular sem distorções */
+}
 
+#coordenador-foto {
+    display: block;
+    margin: 0 auto;
+    width: 100px; /* Ajuste o tamanho da foto */
+    height: 100px; /* Tamanho igual para garantir o formato circular */
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao formato circular sem distorções */
+}
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página do Administrador</title>
-  <link rel="stylesheet" href="/css/formcompra.css">
+  <link rel="stylesheet" href="css/formcompra.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -61,8 +61,8 @@
         <input type="text" id="nomevendedorc" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas">
       </div>
     
-      <div class="input-box">
-        <label for="onibus">Ônibus:</label>
+      <div class="input-box"> 
+        <label for="onibus">Ônibus - Placa:</label>
         <select id="onibus" required>
           <option value="" disabled selected>Selecione o ônibus</option>
         </select>
@@ -91,8 +91,13 @@
       </div>
     
       <button type="submit" class="btn">Finalizar</button>
+    
+      <div class="register-link">
+      <p> <a href="administracao.html">Voltar</a></p>
+    
     </form>
-  </div>
+  
+
     <script>
     // Função para formatar o valor no padrão R$ 
     document.getElementById("valorpc").addEventListener("input", function(event) {
@@ -122,15 +127,12 @@
       event.target.value = cpf;
     });
     </script>
-    
-  </div>
-  <div class="register-link">
-    <p> <a href="administracao.html">Voltar</a></p>
-  </div>
+     
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/js/formcompra.js"></script>
   <script src="/js/viacep.js"></script>
   <script src="/js/formcompraassentos.js"></script>
+  <script src="/js/formcompraformatacao.js"></script>
 </body>
 </html>

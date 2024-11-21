@@ -100,7 +100,7 @@ O projeto utiliza o [PostgresSQL](https://www.postgresql.org/) como banco de dad
 
 ```json
 {
-  "nomec": "professor filho da puta",
+  "nomec": "joao",
   "endereco": "Rua das Flores, 123",
   "numero": "123",
   "cep": "12345678",

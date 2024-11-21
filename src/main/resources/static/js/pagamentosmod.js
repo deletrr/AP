@@ -92,8 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Lista dos campos no modal
         const camposModal = [
             "nomec", "endereco", "assento", "nomeVendedor", 
-            "dataCompra", "horarioCompra", "valorPago", "cpf", "onibus", "status", "cep", "numero"
-        ];
+            "dataCompra", "horarioCompra", "valorPago", "cpf", "onibus", "status", "cep", "numero", "email", "contato"];
 
         camposModal.forEach(campo => {
             const input = document.getElementById(campo);

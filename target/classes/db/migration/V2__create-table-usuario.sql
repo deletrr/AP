@@ -27,7 +27,7 @@ CREATE TABLE assento (
     onibus_placa VARCHAR(20) NOT NULL,
     assento VARCHAR(255) NOT NULL,
     status VARCHAR(20) NOT NULL CHECK (status IN ('disponivel', 'ocupado', 'pendente')),
-    FOREIGN KEY (onibus_placa) REFERENCES coordenador(onibus_placa)
+    FOREIGN KEY (onibus_placa) REFERENCES coordenador(onibus_placa) ON DELETE CASCADE
 );
 
 -- Tabela de compras
@@ -74,7 +74,6 @@ AFTER INSERT ON coordenador
 FOR EACH ROW
 EXECUTE FUNCTION inserir_assentos_para_coordenador();
 
-
 --funcao
 
 CREATE OR REPLACE FUNCTION atualizar_assento_ocupado()
@@ -96,3 +95,4 @@ CREATE TRIGGER trigger_atualizar_assento_ocupado
 AFTER INSERT ON compra
 FOR EACH ROW
 EXECUTE FUNCTION atualizar_assento_ocupado();
+
