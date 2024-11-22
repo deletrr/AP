@@ -9,7 +9,7 @@ Acesse a aplicação: [Aparecida](https://ap-lyart.vercel.app/#)
 
 ## Sobre o Projeto
 
-Este projeto é uma API desenvolvida com as seguintes tecnologias:
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
 - **Java** e **Spring Boot** como base.
 - **Migrações Flyway** para controle de versionamento do banco de dados.
