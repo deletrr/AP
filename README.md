@@ -3,7 +3,7 @@
 
 # Aparecida
 
-Acesse a aplicação: [Aparecida](https://ap-lyart.vercel.app/#)
+Acesse o front da aplicação: [Aparecida](https://ap-lyart.vercel.app/#)
 
 ---
 
