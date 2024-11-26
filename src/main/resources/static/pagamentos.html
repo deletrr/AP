@@ -73,6 +73,7 @@
         </ul>
       </nav>
 
+<<<<<<< HEAD
      <main class="table" id="customers_table">
          <section class="table__header">
              <h1>Pagamentos</h1>
@@ -241,3 +242,122 @@
  </body>
  
  </html>
+=======
+        <label for="switch" class="darkText">
+          <input type="checkbox" id="switch"> Modo Escuro
+        </label>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="table" id="customers_table">
+    <section class="table__header">
+      <h1>Pagamentos</h1>
+      <div class="input-group">
+        <input type="search" placeholder="Encontre Seu Cliente">
+        <img src="" alt="">
+      </div>
+      <div class="export__file">
+        <label for="export-file" class="export__file-btn" title="Export File"></label>
+        <input type="checkbox" id="export-file">
+        <div class="export__file-options">
+          <label>Exportar Relatório &nbsp; &#10140;</label>
+          <label for="export-file" id="toPDF">PDF <img src="imagens/" alt=""></label>
+        </div>
+      </div>
+    </section>
+    <section class="table__body">
+      <table>
+        <thead>
+          <tr>
+            <th> Ônibus <span class="icon-arrow">&UpArrow;</span></th>
+            <th> CPF <span class="icon-arrow">&UpArrow;</span></th>
+            <th> Nome<span class="icon-arrow">&UpArrow;</span></th>
+            <th> Data da Compra<span class="icon-arrow">&UpArrow;</span></th>
+            <th> Status <span class="icon-arrow">&UpArrow;</span></th>
+            <th> Valor Pago <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Detalhes <span class="icon-arrow">&UpArrow;</span></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </section>
+
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Detalhes da Compra</h2>
+        <form id="modalForm">
+          <label for="nomec">Nome:</label>
+          <input type="text" id="nomec" name="nomec">
+
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email">
+
+          <label for="contato">Telefone:</label>
+          <input type="text" id="contato" name="contato">
+
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" name="cep">
+
+
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco" name="endereco">
+
+          <label for="endereco">Numero:</label>
+          <input type="text" id="numero" name="numero">
+
+          <label for="assento">Assento:</label>
+          <input type="text" id="assento" name="assento">
+
+
+          <label for="metodoPagamento">Método de Pagamento</label>
+          <select id="metodoPagamento" name="metodoPagamento">
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+            <option value="pix">Pix</option>
+          </select>
+
+
+          <label for="nomeVendedor">Nome do Vendedor:</label>
+          <input type="text" id="nomeVendedor" name="nomeVendedor">
+
+          <label for="dataCompra">Data da Compra:</label>
+          <input type="date" id="dataCompra" name="dataCompra">
+
+          <label for="horarioCompra">Horário da Compra:</label>
+          <input type="time" id="horarioCompra" name="horarioCompra">
+
+          <label for="valorPago">Valor Pago:</label>
+          <input type="number" id="valorPago" name="valorPago" step="0.01">
+
+          <label for="cpf">CPF:</label>
+          <input type="text" id="cpf" name="cpf">
+
+          <label for="onibus">Ônibus:</label>
+          <input type="text" id="onibus" name="onibus">
+
+          <label for="status">Status:</label>
+          <select id="status" name="status">
+            <option value="pago">Pago</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="pendente">Pendente</option>
+          </select>
+
+          <button type="button" id="saveChanges">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+  <script src="js/planilha.js"></script>
+  <script src="js/pagamentos.js"></script>
+  <script src="js/pagamentosmod.js"></script>
+
+
+</body>
+
+</html>
+>>>>>>> a3fe1f8fde5f651525e80514326e94dc15ceeb81
