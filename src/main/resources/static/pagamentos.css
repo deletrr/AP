@@ -378,7 +378,6 @@ h2, h1{
   transition: 300ms ease-in-out;
   overflow: hidden;
   white-space: nowrap;
-  
 }
 
 #sidebar.close {
@@ -540,7 +539,7 @@ main p {
 }
 .main-card .cards .card{
   width: calc(100% / 3 - 10px);
-  background: #00000070;
+  background: #ffffff70;
   border-radius: 12px;
   padding: 30px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
@@ -647,128 +646,5 @@ input[type="radio"]{
   .main-card .cards .card{
     /* margin: 20px 0 10px 0; */
     width: 100%;
-  }
-}
-
-/* Modal */
-#infoModal {
-  display: none;
-  position: fixed;
-  top: 10%;
-  left: 35%;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Permite rolagem se o conteúdo exceder a altura do modal */
-  max-height: 70vh; /* Limita a altura do modal a 70% da altura da janela */
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 18px;
-}
-
-.close {
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #333;
-}
-
-.close:hover {
-  color: #f44336;
-}
-
-/* Formulário dentro do modal */
-form {
-  display: grid;
-  gap: 15px;
-}
-
-label {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-input, select {
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 100%;
-}
-
-input[type="date"] {
-  font-size: 14px;
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  table {
-      font-size: 14px;
-  }
-
-  th, td {
-      padding: 10px;
-  }
-
-  .modal-content {
-      width: 90%;
-  }
-
-  button {
-      font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .modal-content {
-      width: 95%;
-      padding: 15px;
-  }
-
-  input, select, button {
-      font-size: 12px;
-      padding: 8px;
-  }
-
-  td button.edit-button {
-      font-size: 12px;
-      padding: 4px 8px;
   }
 }
