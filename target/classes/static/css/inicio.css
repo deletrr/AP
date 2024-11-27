@@ -227,7 +227,7 @@ main p {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-  transition: all 0.4s ease;
+  transition: all 0.8s ease;
 }
 
 .main-card .cards .card:hover {
@@ -237,7 +237,7 @@ main p {
 .cards .card .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
@@ -245,7 +245,7 @@ main p {
 .cardsadm .card .content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }

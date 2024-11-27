@@ -1,10 +1,10 @@
-// Função para carregar os coordenadores e preencher o HTML
+
 function carregarCoordenadores() {
-    fetch('./coordenadores') // Endpoint para obter os coordenadores
-      .then(response => response.json()) // Converte a resposta para JSON
+    fetch('./coordenadores') 
+      .then(response => response.json()) 
       .then(coordenadores => {
-        const container = document.querySelector('.cards'); // Seleciona o container das cards
-        container.innerHTML = ''; // Limpa o conteúdo existente
+        const container = document.querySelector('.cards'); 
+        container.innerHTML = ''; 
   
         // Itera sobre os coordenadores e cria as cards
         coordenadores.forEach((coordenador, index) => {

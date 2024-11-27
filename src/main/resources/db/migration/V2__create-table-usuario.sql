@@ -114,7 +114,7 @@ BEGIN
         -- Adicionar novos assentos
         FOR i IN (quantidade_atual + 1)..nova_quantidade LOOP
             INSERT INTO assento (onibus_placa, assento, status)
-            VALUES (NEW.onibus_placa, 'Assento ' || i, 'disponivel');
+            VALUES (NEW.onibus_placa, '' || i, 'disponivel');
         END LOOP;
     ELSIF nova_quantidade < quantidade_atual THEN
         -- Remover assentos excedentes

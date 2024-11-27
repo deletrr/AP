@@ -138,26 +138,48 @@ function fetchAssentos(placaOnibus) {
 
 // Função para preencher o select com os ônibus disponíveis
 function preencherSelectOnibus() {
-    fetch('./assentos')
-        .then(response => response.json())
-        .then(data => {
+    // Faz duas requisições: uma para assentos e outra para coordenadores
+    Promise.all([
+        fetch('./assentos').then(response => response.json()),
+        fetch('./coordenadores').then(response => response.json())
+    ])
+        .then(([assentos, coordenadores]) => {
             const select = document.getElementById('onibus-select');
-            const onibusSet = new Set();
+            const onibusMap = new Map();
 
-            // Adiciona as placas dos ônibus no select
-            data.forEach(assento => {
-                onibusSet.add(assento.onibusPlaca);
+            // Mapeia as placas dos ônibus e seus respectivos coordenadores
+            assentos.forEach(assento => {
+                const placa = assento.onibusPlaca;
+                if (!onibusMap.has(placa)) {
+                    const coordenador = coordenadores.find(coor => coor.onibus_placa === placa);
+                    onibusMap.set(placa, coordenador ? coordenador.nomeco : 'Coordenador não definido');
+                }
             });
 
-            onibusSet.forEach(placa => {
+            // Preenche o select com placa e nome do coordenador
+            onibusMap.forEach((coordenadorNome, placa) => {
                 const option = document.createElement('option');
                 option.value = placa;
-                option.textContent = placa;
+                option.textContent = `${placa} - ${coordenadorNome}`;
                 select.appendChild(option);
             });
         })
-        .catch(error => console.error('Erro ao carregar ônibus:', error));
+        .catch(error => console.error('Erro ao carregar dados:', error));
 }
+
+// Evento para carregar assentos e coordenador quando um ônibus for selecionado
+document.getElementById('onibus-select').addEventListener('change', function() {
+    const placaOnibus = this.value.split(' - ')[0]; // Extrai a placa do valor
+    if (placaOnibus) {
+        fetchAssentos(placaOnibus);
+        buscarCoordenador(placaOnibus);
+    }
+});
+
+// Inicializa a página com o select de ônibus e preenche os assentos
+window.onload = function() {
+    preencherSelectOnibus();
+};
 
 // Evento para carregar assentos quando um ônibus for selecionado
 document.getElementById('onibus-select').addEventListener('change', function() {
