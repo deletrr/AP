@@ -1,10 +1,8 @@
-// script.js
 
-// Seleciona todos os elementos com a classe 'seat'
 const seats = document.querySelectorAll('.seat');
 
 seats.forEach(seat => {
-    // Adiciona os eventos de 'mouseover' e 'mouseout' para o efeito de zoom
+   
     seat.addEventListener('mouseover', () => {
         seat.classList.add('zoom');
     });
@@ -13,18 +11,18 @@ seats.forEach(seat => {
         seat.classList.remove('zoom');
     });
 
-    // Adiciona o evento de 'click' para marcar o assento como selecionado
+    
     seat.addEventListener('click', () => {
-        // Verifica se o assento já está selecionado
+        
         if (seat.classList.contains('selected')) {
-            seat.classList.remove('selected'); // Desmarca se já estava selecionado
+            seat.classList.remove('selected'); 
         } else {
-            seat.classList.add('selected'); // Marca como selecionado
+            seat.classList.add('selected'); 
         }
     });
 
     function goToNextPage() {
-        window.location.href = 'proxima_pagina.html'; // Altere 'proxima_pagina.html' para a URL desejada
+        window.location.href = 'proxima_pagina.html'; 
     }
 });
 

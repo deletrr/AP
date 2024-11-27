@@ -15,7 +15,7 @@ document.querySelector("form").addEventListener("submit", async function (event)
 
   try {
     // Envia os dados usando fetch com método POST
-    const response = await fetch("http://localhost:8080/Usuario", {
+    const response = await fetch("./Usuario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -23,7 +23,7 @@ document.querySelector("form").addEventListener("submit", async function (event)
       body: JSON.stringify(data)
     });
 
-    // Verifica se o envio foi bem-sucedido
+    
     if (response.ok) {
       alert("Cadastro realizado com sucesso!");
       window.location.href = "login.html"; // Redireciona para a página de login

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const apiUrl = 'http://localhost:8080/compras'; // URL da API
+    const apiUrl = './compras'; // URL da API
     const modal = document.getElementById("infoModal");
     const closeModal = document.querySelector(".close");
     const saveChangesButton = document.getElementById("saveChanges");

@@ -96,3 +96,45 @@ AFTER INSERT ON compra
 FOR EACH ROW
 EXECUTE FUNCTION atualizar_assento_ocupado();
 
+--Funcao
+
+-- Função da trigger
+CREATE OR REPLACE FUNCTION atualizar_assentos()
+RETURNS TRIGGER AS $$
+DECLARE
+    nova_quantidade INTEGER;
+    quantidade_atual INTEGER;
+BEGIN
+    -- Converter numero_assentos (VARCHAR) para inteiro
+    nova_quantidade := NEW.numero_assentos::INTEGER;
+    quantidade_atual := (SELECT COUNT(*) FROM assento WHERE onibus_placa = NEW.onibus_placa);
+
+    -- Ajustar os assentos
+    IF nova_quantidade > quantidade_atual THEN
+        -- Adicionar novos assentos
+        FOR i IN (quantidade_atual + 1)..nova_quantidade LOOP
+            INSERT INTO assento (onibus_placa, assento, status)
+            VALUES (NEW.onibus_placa, 'Assento ' || i, 'disponivel');
+        END LOOP;
+    ELSIF nova_quantidade < quantidade_atual THEN
+        -- Remover assentos excedentes
+        DELETE FROM assento
+        WHERE onibus_placa = NEW.onibus_placa
+          AND id IN (
+              SELECT id FROM assento
+              WHERE onibus_placa = NEW.onibus_placa
+              ORDER BY id DESC
+              LIMIT (quantidade_atual - nova_quantidade)
+          );
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger para a tabela coordenador
+CREATE TRIGGER trigger_atualizar_assentos
+AFTER UPDATE OF numero_assentos
+ON coordenador
+FOR EACH ROW
+EXECUTE FUNCTION atualizar_assentos();

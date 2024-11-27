@@ -72,13 +72,13 @@ h1 {
 
 .seat-container {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 .column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .seat {
@@ -101,7 +101,7 @@ h1 {
 }
 
 .bathroom {
-    width: 130px;
+    width: 350px;
     text-align: center;
     padding: 20px;
     background-color: #555;
@@ -109,12 +109,12 @@ h1 {
     border-radius: 5px;
     font-weight: bold;
     align-self: self-end;
-    position:relative;
+    
     bottom: 60px;
 }
 
 .seat.zoom {
-    transform: scale(1.4); 
+    transform: scale(1.2); 
     transition: transform 0.3s ease; 
 }
 
@@ -187,7 +187,3 @@ h1 {
     border-radius: 50%; /* Faz a foto ficar redonda */
     object-fit: cover; /* Garante que a imagem se ajuste ao formato circular sem distorções */
 }
-
-
-
-

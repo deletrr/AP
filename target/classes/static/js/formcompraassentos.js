@@ -1,21 +1,4 @@
-fetch("http://localhost:8080/assentos")
-      .then(response => response.json())
-      .then(assentos => {
-        const onibusSelect = document.getElementById('onibus');
-        // Extrai as placas únicas dos ônibus
-        const placas = [...new Set(assentos.map(assento => assento.onibusPlaca))];
-        
-        // Preenche o select de ônibus com as placas
-        placas.forEach(placa => {
-          const option = document.createElement('option');
-          option.value = placa;
-          option.textContent = placa;
-          onibusSelect.appendChild(option);
-        });
-      })
-      .catch(error => {
-        console.error('Erro ao carregar os ônibus:', error);
-      });
+
 
     // Preenche o select de assentos quando um ônibus é selecionado
     document.getElementById('onibus').addEventListener('change', function() {
@@ -32,7 +15,7 @@ fetch("http://localhost:8080/assentos")
       if (!onibusPlaca) return;
 
       // Chamada ao backend para obter os assentos disponíveis para o ônibus selecionado
-      fetch(`http://localhost:8080/assentos`)
+      fetch(`./assentos`)
         .then(response => response.json()) // Converte a resposta para JSON
         .then(assentos => {
           // Filtra os assentos pelo 'onibusPlaca' selecionado

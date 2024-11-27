@@ -17,7 +17,7 @@ function enviarDados(event) {
   const contato = document.getElementById('contato').value.trim();
   const onibus= document.getElementById('onibus').value.trim();
 
-  // Validação básica
+  // validacao básica
   if (!nomec || !cpf || !endereco || !assento || !metodoPagamento || !nomeVendedor || !dataCompra || !horarioCompra || isNaN(valorPago)) {
     alert('Preencha todos os campos corretamente.');
     return;
@@ -41,10 +41,10 @@ function enviarDados(event) {
     cep
     };
 
-  console.log('Enviando os seguintes dados:', dadosCompra); // Log dos dados enviados
+  console.log('Enviando os seguintes dados:', dadosCompra); // log 
 
  
-  fetch('http://localhost:8080/compras', {
+  fetch('./compras', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -54,16 +54,16 @@ function enviarDados(event) {
     .then(async response => {
       // Verifica se a resposta é OK
       if (!response.ok) {
-        const errorResponse = await response.json(); // Tenta obter mais detalhes do erro
+        const errorResponse = await response.json();
         throw new Error(errorResponse.message || `Erro na requisição: ${response.status}`);
       }
-      return response.json(); // Retorna o JSON da resposta caso OK
+      return response.json();
     })
     .then(data => {
       console.log('Resposta da API:', data);
 
      
-      if (data.id) { // Verifica se um ID foi retornado como indicador de sucesso
+      if (data.id) { 
         alert('Cadastrado com sucesso!');
         document.getElementById('formCompra').reset();
       } else {

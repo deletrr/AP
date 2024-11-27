@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
       try {
         // Envia a requisição POST para o endpoint localhost:8080/Usuario/login
-        const response = await fetch("http://localhost:8080/Usuario/login", {
+        const response = await fetch("./Usuario/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
           if (data === "Login successful") {  
             alert("Login realizado com sucesso!");
-            window.location.href = "/administracao.html"; 
+            window.location.href = "./administracao.html"; 
           } else {
             alert("Credenciais inválidas. Tente novamente.");
           }

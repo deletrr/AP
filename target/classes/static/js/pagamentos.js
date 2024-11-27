@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const apiUrl = 'http://localhost:8080/compras'; // Ajuste a URL conforme sua configuração do Spring
+    const apiUrl = './compras'; // Ajuste a URL conforme sua configuração do Spring
 
     // Função para buscar as compras do servidor
     function buscarCompras() {

@@ -17,7 +17,7 @@ document.querySelector("form").addEventListener("submit", async function (event)
 
   try {
     // Envia os dados usando fetch com método POST
-    const response = await fetch("http://localhost:8080/Usuario", {
+    const response = await fetch("/Usuario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

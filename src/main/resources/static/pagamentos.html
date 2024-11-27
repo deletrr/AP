@@ -1,243 +1,208 @@
 <!DOCTYPE html>
- <html lang="pt-br">
- 
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Pagamentos</title>
-     <link rel="stylesheet" type="text/css" href="pagamentos.css">
- </head>
- 
- <body>
-    <nav id="sidebar">
-        <ul>
-          <li>
-            <span class="logo">Menu</span>
-            <button onclick=toggleSidebar() id="toggle-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
-            </button>
-          </li>
+<html lang="pt-br">
 
-          <li class="active">
-            <div class="cards">
-              <div class="card">
-               <div class="content">
-                <h2>ADM</h2><br>
-                 <div class="img">
-                   <img src="coordenadores/coordenador - 4.jpg" alt="">
-                 </div>
-                 <div class="details">
-                   <div class="name">Luana</div>
-                   <div class="name">Marques</div>
-                 </div>
-               </div>
-              </div>
-<br>
-          <li class="active">
-            <a href="index.html">
-              <svg xmlns="http://www.w3.org/2000/svg" 
-              ="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"/></svg>
-              <span>Coordenadores</span>
-            </a>
-          </li>
-          <li>
-            <a href="pagamentos.html">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
-              <span>Pagamentos</span>
-            </a>
-          </li>
-          <li>
-            <button onclick=toggleSubMenu(this) class="dropdown-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z"/></svg>
-              <span>Criar</span>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
-            </button>
-            <ul class="sub-menu">
-              <div>
-                <li><a href="#">Cadastrar Perfil</a></li>
-                <li><a href="#">Editar Coord.</a></li>
-              </div>
-            </ul>
-          </li>
-          <li>
-            <a href="perfil.html">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Zm80 0h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
-              <span>Meu Perfil</span>
-            </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coordenadores</title>
+  <link rel="stylesheet" href="pagamentos.css">
+  <script type="text/javascript" src="js/app.js" defer></script>
+</head>
 
-            <label for="switch" class= "darkText">
-                <input type="checkbox" id="switch"> Dark Mode
-              </label>
-          </li>
+<body>
+  <nav id="sidebar">
+    <ul>
+      <li>
+        <span class="logo">Menu</span>
+        <button onclick=toggleSidebar() id="toggle-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z" />
+          </svg>
+        </button>
+      </li>
+
+
+      <li class="active">
+        <a href="administracao.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z" />
+          </svg>
+          <span>Coordenadores</span>
+        </a>
+      <li>
+
+      <li class="active">
+        <a href="assentos.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+          </svg>
+          <span>Frota</span>
+        </a>
+      <li>
+
+        <a href="pagamentos.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+          </svg>
+          <span>Relatorio</span>
+        </a>
+      </li>
+      <li>
+
+        <a href="formcompra.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560q-17 0-28.5-11.5T520-640ZM120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160q-17 0-28.5-11.5T120-480Zm400 320v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560q-17 0-28.5-11.5T520-160Zm-400 0v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160q-17 0-28.5-11.5T120-160Zm80-360h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+          </svg>
+          <span>Cadastrar Pagamentos</span>
+        </a>
+      </li>
+      <li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z" />
+          </svg>
+          <span>Cadastro</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <path
+              d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z" />
+          </svg>
+        </button>
+        <ul class="sub-menu">
+          <div>
+            <li><a href="Cadastroadm.html">Cadastrar Perfil</a></li>
+            <li><a href="perfilcord.html">Editar Coordenador</a></li>
+          </div>
         </ul>
-      </nav>
+      </li>
 
-     <main class="table" id="customers_table">
-         <section class="table__header">
-             <h1>Pagamentos</h1>
-             <div class="input-group">
-                 <input type="search" placeholder="Encontre Seu Cliente">
-                 <img src="" alt="">
-             </div>
-             <div class="export__file">
-                 <label for="export-file" class="export__file-btn" title="Export File"></label>
-                 <input type="checkbox" id="export-file">
-                 <div class="export__file-options">
-                     <label>Exportar Relatório &nbsp; &#10140;</label>
-                     <label for="export-file" id="toPDF">PDF <img src="imagens/" alt=""></label>
-                 </div>
-             </div>
-         </section>
-         <section class="table__body">
-             <table>
-                 <thead>
-                     <tr>
-                         <th> Ônibus <span class="icon-arrow">&UpArrow;</span></th>
-                         <th> CPF <span class="icon-arrow">&UpArrow;</span></th>
-                         <th> Nome<span class="icon-arrow">&UpArrow;</span></th>
-                         <th> Data da Compra<span class="icon-arrow">&UpArrow;</span></th>
-                         <th> Status <span class="icon-arrow">&UpArrow;</span></th>
-                         <th> Valor Pago <span class="icon-arrow">&UpArrow;</span></th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                         <td> 1 </td>
-                         <td>445.055.318-50</td>
-                         <td> Bianca Bomfim</td>
-                         <td> 17 de Janeiro </td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong> R$329,00 </strong></td>
-                     </tr>
-                     <tr>
-                         <td> 2 </td>
-                         <td> 545.025.778-10 </td>
-                         <td> Amanda Fonseca</td>
-                         <td> 27 de Agosto </td>
-                         <td>
-                             <p class="status cancelled">Cancelado</p>
-                         </td>
-                         <td> <strong>-------------</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 3</td>
-                         <td> 215.435.308-50 </td>
-                         <td> Ayrton Perreira </td>
-                         <td> 14 de Maio </td>
-                         <td>
-                             <p class="status shipped">Pendente</p>
-                         </td>
-                         <td> <strong>R$0</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 4</td>
-                         <td> 605.995.318-40 </td>
-                         <td> Paulo Perez </td>
-                         <td> 25 de maio </td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 5</td>
-                         <td> 105.044.398-90 </td>
-                         <td> Danilo Paulino</td>
-                         <td> 23 de Abril </td>
-                         <td>
-                             <p class="status pending">Sinal</p>
-                         </td>
-                         <td> <strong>R$100,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 6</td>
-                         <td>422.805.208-50 </td>
-                         <td> Amanda Ianes</td>
-                         <td> 23 de Abril</td>
-                         <td>
-                             <p class="status cancelled">Cancelado</p>
-                         </td>
-                         <td> <strong>-------------</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 7</td>
-                         <td> 407.758.318-80 </td>
-                         <td> Paulo Ricardo </td>
-                         <td> 20 de Maio </td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 8</td>
-                         <td> 107.485.452-70 </td>
-                         <td> Danilo Silva</td>
-                         <td> 30 de Julho </td>
-                         <td>
-                             <p class="status pending">Sinal</p>
-                         </td>
-                         <td> <strong>R$150,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 9</td>
-                         <td> 350.785.318-60 </td>
-                         <td> Ayrton Iwanizu </td>
-                         <td> 22 de Fevereiro </td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 9</td>
-                         <td> 250.345.318-20</td>
-                         <td> Bianca Soares</td>
-                         <td> 22 de Agosto</td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 9</td>
-                         <td> 457.785.485-30</td>
-                         <td> Carol Araujo </td>
-                         <td> 22 de Agosto</td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 9</td>
-                         <td> 685.55.318-70</td>
-                         <td> João Silva </td>
-                         <td> 22 Dec, 2023 </td>
-                         <td>
-                             <p class="status cancelled">Cancelado</p>
-                         </td>
-                         <td> <strong>  -------------</strong> </td>
-                     </tr>
-                     <tr>
-                         <td> 9</td>
-                         <td> 458.785.348-10 </td>
-                         <td> Padre Reginaldo </td>
-                         <td> 22 Dec, 2023 </td>
-                         <td>
-                             <p class="status delivered">Pago</p>
-                         </td>
-                         <td> <strong>R$329,00</strong> </td>
-                     </tr>
-                 </tbody>
-             </table>
-         </section>
-     </main>
-     <script src="js/planilha.js"></script>
- 
- </body>
- 
- </html>
+    </ul>
+  </nav>
+
+  <main class="table" id="customers_table">
+    <section class="table__header">
+      <h1>Pagamentos</h1>
+      <div class="input-group">
+        <input type="search" placeholder="Encontre Seu Cliente">
+        <img src="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color/700/09_search-1024.png" width="32" height="32"  alt="">
+      </div>
+
+      <div class="export__file">
+        <label for="export-file" class="export__file-btn" title="Abrir Menu"></label>
+        <input type="checkbox" id="export-file">
+        <div class="export__file-options">
+          <label>Exportar Relatório &nbsp; &#10140;</label>
+          <label id="toPDF">PDF <img src="imagens/" alt=""></label>
+          <label id="toJSON">JSON <img src="imagens/" alt=""></label>
+        </div>
+      </div>
+
+    </section>
+    <section class="table__body">
+      <table>
+        <thead>
+          <tr>
+            <th> Ônibus <span class="icon-arrow">&UpArrow;</span></th>
+            <th> CPF <span class="icon-arrow">&UpArrow;</span></th>
+            <th> Nome<span class="icon-arrow">&UpArrow;</span></th>
+            <th> Data da Compra<span class="icon-arrow">&UpArrow;</span></th>
+            <th> Status <span class="icon-arrow">&UpArrow;</span></th>
+            <th> Valor Pago <span class="icon-arrow">&UpArrow;</span></th>
+            <th>Detalhes <span class="icon-arrow">&UpArrow;</span></th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </section>
+
+    <div id="infoModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Detalhes da Compra</h2>
+        <form id="modalForm">
+
+
+          <label for="nomec">Nome:</label>
+          <input type="text" id="nomec" name="nomec">
+
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email">
+
+          <label for="contato">Telefone:</label>
+          <input type="text" id="contato" name="contato">
+
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" name="cep">
+
+
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco" name="endereco">
+
+          <label for="endereco">Numero:</label>
+          <input type="text" id="numero" name="numero">
+
+          <label for="assento">Assento:</label>
+          <input type="text" id="assento" name="assento">
+
+
+          <label for="metodoPagamento">Método de Pagamento</label>
+          <select id="metodoPagamento" name="metodoPagamento">
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+            <option value="pix">Pix</option>
+          </select>
+
+
+          <label for="nomeVendedor">Nome do Vendedor:</label>
+          <input type="text" id="nomeVendedor" name="nomeVendedor">
+
+          <label for="dataCompra">Data da Compra:</label>
+          <input type="date" id="dataCompra" name="dataCompra">
+
+          <label for="horarioCompra">Horário da Compra:</label>
+          <input type="time" id="horarioCompra" name="horarioCompra">
+
+          <label for="valorPago">Valor Pago:</label>
+          <input type="number" id="valorPago" name="valorPago" step="0.01">
+
+          <label for="cpf">CPF:</label>
+          <input type="text" id="cpf" name="cpf">
+
+          <label for="onibus">Ônibus:</label>
+          <input type="text" id="onibus" name="onibus">
+
+          <label for="status">Status:</label>
+          <select id="status" name="status">
+            <option value="pago">Pago</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="pendente">Pendente</option>
+          </select>
+
+          <button type="button" id="saveChanges">Salvar Alterações</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+  <script src="js/planilha.js"></script>
+  <script src="js/pagamentos.js"></script>
+  <script src="js/pagamentosmod.js"></script>
+  <script src="js/toJson.js"></script>
+  <script src="js/toPDF.js"></script>
+
+
+
+</body>
+
+</html>

@@ -108,7 +108,7 @@ function alterarStatusAssento(seatDiv, assento) {
 
 // Função para atualizar o status do assento no servidor
 function atualizarAssentoNoServidor(assento) {
-    fetch(`http://localhost:8080/assentos/${assento.id}`, {
+    fetch(`./assentos/${assento.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -128,7 +128,7 @@ function atualizarAssentoNoServidor(assento) {
 
 // Função para buscar os assentos de um ônibus específico
 function fetchAssentos(placaOnibus) {
-    fetch(`http://localhost:8080/assentos?onibusPlaca=${placaOnibus}`)
+    fetch(`./assentos?onibusPlaca=${placaOnibus}`)
         .then(response => response.json())
         .then(data => {
             preencherAssentos(data, placaOnibus);  // Passa o 'placaOnibus' para o preenchimento
@@ -138,7 +138,7 @@ function fetchAssentos(placaOnibus) {
 
 // Função para preencher o select com os ônibus disponíveis
 function preencherSelectOnibus() {
-    fetch('http://localhost:8080/assentos')
+    fetch('./assentos')
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('onibus-select');
@@ -178,7 +178,7 @@ window.onload = function() {
 
 // Função para buscar o coordenador pela placa do ônibus
 function buscarCoordenador(placaOnibus) {
-    fetch(`http://localhost:8080/coordenadores`)
+    fetch(`./coordenadores`)
         .then(response => response.json())
         .then(data => {
             const coordenador = data.find(coordenador => coordenador.onibus_placa === placaOnibus);

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnDeletar = document.getElementById('btnDeletar');
 
     // Carregar coordenadores no select
-    fetch('http://localhost:8080/coordenadores')
+    fetch('./coordenadores')
         .then(response => response.json())
         .then(data => {
             data.forEach(coordenador => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     coordenadorSelect.addEventListener('change', (event) => {
         const coordenadorId = event.target.value;
         if (coordenadorId) {
-            fetch(`http://localhost:8080/coordenadores/${coordenadorId}`)
+            fetch(`./coordenadores/${coordenadorId}`)
                 .then(response => response.json())
                 .then(data => {
                     nomeco.value = data.nomeco;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             numero_assentos: numero_assentos.value
         };
 
-        fetch(`http://localhost:8080/coordenadores/${coordenadorId}`, {
+        fetch(`./coordenadores/${coordenadorId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnDeletar.addEventListener('click', () => {
         const coordenadorId = coordenadorSelect.value;
         if (coordenadorId && confirm('Tem certeza que deseja deletar este coordenador?')) {
-            fetch(`http://localhost:8080/coordenadores/${coordenadorId}`, {
+            fetch(`./coordenadores/${coordenadorId}`, {
                 method: 'DELETE',
             })
             .then(response => {
