@@ -1,6 +1,5 @@
 package com.aparecida.aparecida.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class CompraService {
         return compraRepository.findAll();
     }
 
-    public Optional<Compra> buscarCompraPorId(Long id) {
+    public Optional<Compra> buscarCompraPorId(String id) {
         return compraRepository.findById(id);
     }
 
@@ -28,15 +27,17 @@ public class CompraService {
         return compraRepository.save(compra);
     }
 
-    public void deletarCompra(Long id) {
-        compraRepository.deleteById(id);
+    public void deletarCompra(String id) {
+        Optional<Compra> compra = compraRepository.findById(id);
+        compra.ifPresent(c -> compraRepository.deleteById(id));
     }
 
-    public Compra atualizarCompra(Long id, Compra compra) {
-        if (compraRepository.existsById(id)) {
-            compra.setId(id);
+    public Compra atualizarCompra(String id, Compra compra) {
+        Optional<Compra> compraExistente = compraRepository.findById(id);
+        if (compraExistente.isPresent()) {
+            
             return compraRepository.save(compra);
         }
-        return null;  // ou pode lançar uma exceção
+        return null;  // ou pode lançar uma exceção personalizada.
     }
 }

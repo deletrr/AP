@@ -25,12 +25,12 @@ public class OnibusService {
     }
 
     // Busca um ônibus pelo ID
-    public Optional<Onibus> getOnibusById(Long id) {
+    public Optional<Onibus> getOnibusById(String id) {
         return onibusRepository.findById(id);
     }
 
     // Atualiza um ônibus existente
-    public Optional<Onibus> updateOnibus(Long id, Onibus onibusDetails) {
+    public Optional<Onibus> updateOnibus(String id, Onibus onibusDetails) {
         return onibusRepository.findById(id).map(onibus -> {
             onibus.setNome(onibusDetails.getNome());
             return onibusRepository.save(onibus);
@@ -38,7 +38,7 @@ public class OnibusService {
     }
 
     // Exclui um ônibus pelo ID
-    public boolean deleteOnibus(Long id) {
+    public boolean deleteOnibus(String id) {
         if (onibusRepository.existsById(id)) {
             onibusRepository.deleteById(id);
             return true;

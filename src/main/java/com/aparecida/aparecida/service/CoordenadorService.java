@@ -20,7 +20,7 @@ public class CoordenadorService {
     }
 
     // Get coordenador by id
-    public Optional<Coordenador> getCoordenadorById(Long id) {
+    public Optional<Coordenador> getCoordenadorById(String id) {
         return coordenadorRepository.findById(id);
     }
 
@@ -32,7 +32,7 @@ public class CoordenadorService {
     }
 
     // Update an existing coordenador
-    public Coordenador updateCoordenador(Long id, Coordenador coordenador) {
+    public Coordenador updateCoordenador(String id, Coordenador coordenador) {
         if (coordenadorRepository.existsById(id)) {
             coordenador.setId(id);
             return coordenadorRepository.save(coordenador);
@@ -41,7 +41,7 @@ public class CoordenadorService {
     }
 
     // Delete coordenador by id
-    public boolean deleteCoordenador(Long id) {
+    public boolean deleteCoordenador(String id) {
         if (coordenadorRepository.existsById(id)) {
             coordenadorRepository.deleteById(id);
             return true;

@@ -13,7 +13,7 @@
       <h1>Cadastro de Coordenador</h1>
       <!-- Campos do Coordenador -->
       <div class="input-box">
-        <input type="text" placeholder="Nome do Coordenador" id="nomeco" name="nomeco" required>
+        <input type="text" placeholder="Nome do Coordenador" id="nomeco" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas" name="nomeco" required>
       </div>
       <div class="input-box">
         <input type="text" placeholder="Número de Contato" id="numero_contato" name="numero_contato" required>
@@ -43,6 +43,7 @@
   
   <script src="/js/formcompraformatacao.js"></script>
   <script src="/js/cadastroCoordenadorOnibus.js"></script>
+  <script src="/js/assentoadm.js"></script>
   
 </body>
 </html>

@@ -16,39 +16,39 @@ public class OnibusController {
     @Autowired
     private OnibusService onibusService;
 
-    // POST - Criação de um novo ônibus
+    
     @PostMapping
     public ResponseEntity<Onibus> createOnibus(@RequestBody Onibus onibus) {
         Onibus savedOnibus = onibusService.createOnibus(onibus);
         return ResponseEntity.ok(savedOnibus);
     }
 
-    // GET - Obter todos os ônibus
+    
     @GetMapping("/onibus")
     public ResponseEntity<List<Onibus>> getAllOnibus() {
         List<Onibus> onibusList = onibusService.getAllOnibus();
         return ResponseEntity.ok(onibusList);
     }
 
-    // GET - Obter ônibus por ID
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Onibus> getOnibusById(@PathVariable Long id) {
+    public ResponseEntity<Onibus> getOnibusById(@PathVariable String id) {
         Optional<Onibus> onibus = onibusService.getOnibusById(id);
         return onibus.map(ResponseEntity::ok)
                      .orElse(ResponseEntity.notFound().build());
     }
 
-    // PUT - Atualizar um ônibus existente
+    // PUT 
     @PutMapping("/{id}")
-    public ResponseEntity<Onibus> updateOnibus(@PathVariable Long id, @RequestBody Onibus onibusDetails) {
+    public ResponseEntity<Onibus> updateOnibus(@PathVariable String id, @RequestBody Onibus onibusDetails) {
         Optional<Onibus> updatedOnibus = onibusService.updateOnibus(id, onibusDetails);
         return updatedOnibus.map(ResponseEntity::ok)
                             .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE - Excluir um ônibus
+    // DELETE 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOnibus(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteOnibus(@PathVariable String id) {
         boolean deleted = onibusService.deleteOnibus(id);
         return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }

@@ -23,7 +23,7 @@ public class CompraController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Compra> buscarCompraPorId(@PathVariable Long id) {
+    public ResponseEntity<Compra> buscarCompraPorId(@PathVariable String id) {
         Optional<Compra> compra = compraService.buscarCompraPorId(id);
         return compra.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -34,18 +34,17 @@ public class CompraController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Compra> atualizarCompra(@PathVariable Long id, @RequestBody Compra compra) {
+    public ResponseEntity<Compra> atualizarCompra(@PathVariable String id, @RequestBody Compra compra) {
         Compra compraAtualizada = compraService.atualizarCompra(id, compra);
         return compraAtualizada != null ? ResponseEntity.ok(compraAtualizada) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarCompra(@PathVariable Long id) {
-        compraService.deletarCompra(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> deletarCompra(@PathVariable String id) {
+        if (compraService.buscarCompraPorId(id).isPresent()) {
+            compraService.deletarCompra(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
-
-    
-
-
 }

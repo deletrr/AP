@@ -30,7 +30,7 @@ public class AssentoController {
     }
 
   @PutMapping("/{id}")
-public ResponseEntity<String> atualizarAssento(@PathVariable Long id, @RequestBody Assento assentoAtualizado) {
+public ResponseEntity<String> atualizarAssento(@PathVariable String id, @RequestBody Assento assentoAtualizado) {
     try {
         // Tenta buscar o assento no banco de dados
         Assento assento = assentoRepository.findById(id)
@@ -49,7 +49,7 @@ public ResponseEntity<String> atualizarAssento(@PathVariable Long id, @RequestBo
 
     // Endpoint para reservar um assento
     @PostMapping("/{id}/reservar")
-    public void reservarAssento(@PathVariable("id") long id_assento) {
+    public void reservarAssento(@PathVariable("id") String id_assento) {
         Assento assento = assentoRepository.findById(id_assento)
                 .orElseThrow(() -> new RuntimeException("Assento não encontrado"));
 
@@ -58,12 +58,12 @@ public ResponseEntity<String> atualizarAssento(@PathVariable Long id, @RequestBo
         assentoRepository.save(assento);
     }
 
-    // Endpoint para criar assentos para um ônibus
     @PostMapping("/criar")
-    public String criarAssentos(@RequestParam String onibusPlaca, @RequestParam int numeroAssentos) {
-        assentoService.criarAssentos(onibusPlaca, numeroAssentos);
-        return "Assentos criados com sucesso para o ônibus " + onibusPlaca;
+    public String criarAssentos(@RequestBody Assento assentoRequest) {
+        assentoService.criarAssentos(assentoRequest.getOnibusPlaca(), assentoRequest.getNumeroAssento());
+        return "Assentos criados com sucesso para o ônibus " + assentoRequest.getOnibusPlaca();
     }
+    
 
     @GetMapping("/assentos/{onibusPlaca}")
 public ResponseEntity<List<Assento>> getAssentos(@PathVariable String onibusPlaca) {
@@ -73,11 +73,46 @@ public ResponseEntity<List<Assento>> getAssentos(@PathVariable String onibusPlac
     }
     return ResponseEntity.ok(assentos);
     }
+
     @GetMapping("/assentos/{id}")
     public String getMethodName(@RequestParam String param) {
         return new String();
     }
-    
+
+    @PutMapping("/{onibusPlaca}/{numeroAssento}")
+public ResponseEntity<String> atualizarAssento(@PathVariable String onibusPlaca, @PathVariable int numeroAssento, @RequestBody Assento assentoAtualizado) {
+    try {
+        // Tenta buscar o assento no banco de dados com base no ônibus e número do assento
+        Assento assento = assentoRepository.findByOnibusPlacaAndNumeroAssento(onibusPlaca, numeroAssento)
+            .orElseThrow(() -> new RuntimeException("Assento não encontrado"));
+        
+        // Atualiza o status do assento
+        assento.setStatus(assentoAtualizado.getStatus());  
+        assentoRepository.save(assento);  // Salva a atualização no banco
+
+        return ResponseEntity.ok("Assento atualizado com sucesso!");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar o assento.");
+    }
+}
+@DeleteMapping("/excluir")
+public ResponseEntity<String> excluirAssentos(@RequestParam String placa) {
+    try {
+        // Exclui todos os assentos do ônibus com a placa fornecida
+        List<Assento> assentosExistentes = assentoRepository.findByOnibusPlaca(placa);
+        if (assentosExistentes.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum assento encontrado para o ônibus com a placa: " + placa);
+        }
+
+        assentoRepository.deleteAll(assentosExistentes);  // Deleta todos os assentos encontrados
+        return ResponseEntity.ok("Assentos excluídos com sucesso para o ônibus " + placa);
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body("Erro ao excluir os assentos: " + e.getMessage());
+    }
+}
+
+
 
     
 

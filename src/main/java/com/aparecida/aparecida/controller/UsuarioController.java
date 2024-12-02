@@ -22,7 +22,7 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
         Usuario usuarioSalvo = usuarioService.salvar(usuario);
-        URI location = URI.create("/usuario/" + usuarioSalvo.getId());
+        URI location = URI.create("/usuario/" + usuarioSalvo.getId_usuario());
         return ResponseEntity.created(location).body(usuarioSalvo);
     }
     @PostMapping("/login")

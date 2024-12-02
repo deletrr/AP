@@ -11,7 +11,8 @@
   <div class="wrapper">
     <form id="formCompra">
       <h1>Formulário de Compra</h1>
-    
+
+       
       <div class="input-box">
         <label for="nomecp">Nome Completo:</label>
         <input type="text" id="nomecp" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas">
@@ -57,8 +58,8 @@
       </div>
     
       <div class="input-box">
-        <label for="nomevendedorc">Nome do Vendedor:</label>
-        <input type="text" id="nomevendedorc" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas">
+        <label for="nomevendedorc">Nome do Coordenador:</label>
+        <input type="text" id="nomevendedorc" required pattern="[A-Za-záàãâéèíóòúç ]+" title="Apenas letras são permitidas" disabled>
       </div>
     
       <div class="input-box"> 
@@ -74,6 +75,7 @@
           
         </select>
       </div>
+           
     
       <div class="input-box">
         <label for="datac">Data:</label>
@@ -87,7 +89,7 @@
     
       <div class="input-box">
         <label for="valorpc">Valor Pago: R$</label>
-        <input type="text" id="valorpc" required pattern="\d+(\.\d{1,2})?" title="Formato de valor inválido">
+        <input type="text" id="valorpc"  title="Formato de valor inválido">
       </div>
     
       <button type="submit" class="btn">Finalizar</button>
@@ -112,9 +114,9 @@
       event.target.value = valor;
     });
     
-    // Função para validar e formatar o CPF
+    //  valida e formata o CPF
     document.getElementById("cpf").addEventListener("input", function(event) {
-      let cpf = event.target.value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+      let cpf = event.target.value.replace(/\D/g, ''); 
       if (cpf.length <= 3) {
         cpf = cpf.replace(/(\d{3})/, "$1");
       } else if (cpf.length <= 6) {
@@ -134,6 +136,9 @@
   <script src="/js/viacep.js"></script>
   <script src="/js/formcompraassentos.js"></script>
   <script src="/js/formcompraformatacao.js"></script>
+  <script src="/js/assentoform.js"></script>
   <script src="/js/buscarCoordenador.js"></script>
+  <script src="/js/atualizarAssento.js"></script>
+
 </body>
 </html>

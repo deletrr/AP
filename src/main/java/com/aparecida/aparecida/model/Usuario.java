@@ -1,23 +1,26 @@
 package com.aparecida.aparecida.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "usuario")
 public class Usuario {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_usuario;
+    private String id_usuario; 
+
     private String nome;
     private String email;
     private String senha;
     private String tipo_usuario;
 
-    // Getters e setters
-    public Long getId() {
+    // Getters e Setters
+    public String getId_usuario() {
         return id_usuario;
+    }
+
+    public void setId_usuario(String id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNome() {

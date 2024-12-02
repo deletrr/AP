@@ -1,25 +1,23 @@
 package com.aparecida.aparecida.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document(collection = "onibus")
 public class Onibus {
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_onibus;
+
+    @Id
+    private String id_onibus; 
+
     private String nome;
     private String placa;
-    
 
     // Getters e Setters
-    public Long getId_onibus() {
+    public String getId_onibus() {
         return id_onibus;
     }
 
-    public void setId_onibus(Long id_onibus) {
+    public void setId_onibus(String id_onibus) {
         this.id_onibus = id_onibus;
     }
 
@@ -31,31 +29,27 @@ public class Onibus {
         this.nome = nome;
     }
 
-   
     public String getPlaca() {
-		return placa;
-	}
-
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
-    
-    public String readOnibus() {
-        return "ID: " + id_onibus + ", Nome: " + nome + ", placa:" + placa;
+        return placa;
     }
 
-    // UPDATE
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String readOnibus() {
+        return "ID: " + id_onibus + ", Nome: " + nome + ", Placa: " + placa;
+    }
+
+    // Atualiza os dados do ônibus
     public void updateOnibus(String nome) {
         if (nome != null) this.nome = nome;
-        
     }
 
-    // DELETE
+    // Exclui os dados do ônibus (marcando como nulo)
     public void deleteOnibus() {
         this.id_onibus = null;
         this.nome = null;
-        this.placa = null;        
+        this.placa = null;
     }
-
-	
 }

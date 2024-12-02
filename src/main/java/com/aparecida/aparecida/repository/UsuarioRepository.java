@@ -1,10 +1,10 @@
 package com.aparecida.aparecida.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.aparecida.aparecida.model.Usuario;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+@Repository
+public interface UsuarioRepository extends MongoRepository<Usuario, String> {
     Usuario findByEmail(String email);
-
 }

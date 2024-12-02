@@ -1,35 +1,26 @@
 package com.aparecida.aparecida.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "assento")
+@Document(collection = "assentos")
 public class Assento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Column(name = "onibus_placa", nullable = false)
     private String onibusPlaca;
 
-    @Column(name = "assento", nullable = false)
     private Integer numeroAssento;
 
-    @Column(name = "status", nullable = false)
     private String status;
 
-    // Getters and Setters
-    public Long getId() {
+    // Getters e Setters
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,8 +48,13 @@ public class Assento {
         this.status = status;
     }
 
-    public void setDisponivel(boolean b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDisponivel'");
+    public void setDisponivel(boolean disponivel) {
+        this.status = disponivel ? "disponível" : "indisponível";
     }
+
+    public Assento orElseThrow(Object object) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'orElseThrow'");
+    }
+    
 }

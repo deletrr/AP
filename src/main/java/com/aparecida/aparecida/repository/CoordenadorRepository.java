@@ -1,11 +1,10 @@
 package com.aparecida.aparecida.repository;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.aparecida.aparecida.model.Coordenador;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CoordenadorRepository extends JpaRepository<Coordenador, Long>{
-
+@Repository
+public interface CoordenadorRepository extends MongoRepository<Coordenador, String> {
+    
 }
-
-
-

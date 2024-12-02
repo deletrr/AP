@@ -17,15 +17,15 @@ public class CoordenadorController {
     @Autowired
     private CoordenadorService coordenadorService;
 
-    // GET all coordenadores
+    // GET 
     @GetMapping
     public List<Coordenador> getAllCoordenadores() {
         return coordenadorService.getAllCoordenadores();
     }
 
-    // GET coordenador by id
+    // GET 
     @GetMapping("/{id}")
-    public ResponseEntity<Coordenador> getCoordenadorById(@PathVariable Long id) {
+    public ResponseEntity<Coordenador> getCoordenadorById(@PathVariable String id) {
         Optional<Coordenador> coordenador = coordenadorService.getCoordenadorById(id);
         return coordenador.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
@@ -37,18 +37,18 @@ public ResponseEntity<Coordenador> createCoordenador(@RequestBody Coordenador co
     return ResponseEntity.status(HttpStatus.CREATED).body(createdCoordenador);
 }
 
-    // PUT update coordenador by id
+    // PUT 
     @PutMapping("/{id}")
-    public ResponseEntity<Coordenador> updateCoordenador(@PathVariable Long id, @RequestBody Coordenador coordenador) {
+    public ResponseEntity<Coordenador> updateCoordenador(@PathVariable String id, @RequestBody Coordenador coordenador) {
         Coordenador updatedCoordenador = coordenadorService.updateCoordenador(id, coordenador);
         return updatedCoordenador != null
                 ? ResponseEntity.ok(updatedCoordenador)
                 : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    // DELETE coordenador by id
+    // DELETE 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCoordenador(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCoordenador(@PathVariable String id) {
         boolean deleted = coordenadorService.deleteCoordenador(id);
         return deleted
                 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build()

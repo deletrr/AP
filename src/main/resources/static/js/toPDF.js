@@ -6,7 +6,7 @@ document.getElementById('toPDF').addEventListener('click', async (event) => {
     checkbox.checked = false; 
 
     try {
-        const response = await fetch('./compras');
+        const response = await fetch('./contato');
         
         if (!response.ok) {
             throw new Error(`Erro ao obter dados: ${response.statusText}`);
