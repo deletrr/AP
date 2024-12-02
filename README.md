@@ -2,7 +2,7 @@
 
 # Aparecida
 
-Projeto disponível em: [Acesse aqui](https://ap-lyart.vercel.app/#)
+Projeto disponível em: https://ap-lyart.vercel.app/
 
 ---
 
