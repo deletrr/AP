@@ -1,168 +1,170 @@
-# aparecida
+---
 
-https://ap-lyart.vercel.app/#
+# Aparecida
 
------------------------------------------------------------------------------------------------------------------
-#
------------------------------------------------------------------------------------------------------------------
-#
----------------------------------------------------------------------------------------------------------------
+Projeto disponível em: [Acesse aqui](https://ap-lyart.vercel.app/#)
 
-Este projeto é uma API construída usando **Java, Java Spring, Migrações Flyway, PostgresSQL como banco de dados, e Spring Security e JWT para controle de autenticação.**
+---
 
-## Instalação
+## Descrição do Projeto
 
-1. Instale as dependências com o Maven.
-2. Instale o [PostgresSQL](https://www.postgresql.org/).
+Este projeto é uma API desenvolvida utilizando as seguintes tecnologias:
 
-## Uso
+- **Java e Spring Boot**: Base do backend.
+- **Flyway**: Gerenciamento de migrações de banco de dados.
+- **MongoDB**: Banco de dados utilizado após migração.
+- **Spring Security e JWT**: Controle de autenticação e autorização.
 
-1. Inicie a aplicação com o Maven.
-2. A API estará acessível em http://localhost:8080.
+---
 
-## Endpoints da API
-A API fornece os seguintes endpoints:
+## Instalação e Configuração
 
-```markdown
-GET /- Recupera uma lista de todos os *. (todos os usuários autenticados)
+### Pré-requisitos
 
-POST /Usuario - Registra um novo *, (acesso ADMIN requerido).
-------------------------------------------------
-{
-    "nome": "João Silva",
-    "email": "joao.silva@email.com",
-    "senha": "minhaSenhacriptografada",
-    "tipo_usuario": "ADM"
-}
+1. Instale o [Java 17 ou superior](https://adoptium.net/).
+2. Configure o Maven no ambiente.
+3. Instale o [MongoDB](https://www.mongodb.com/try/download/community).
 
-<<<<<<< HEAD
-POST /Usuario/login - Realiza login no aplicativo.
+### Passos para Instalação
 
-=======
-------------------------------------------------
+1. Clone o repositório.
+2. Configure as propriedades do MongoDB no arquivo `application.properties`:
+   ```properties
+   spring.data.mongodb.uri=mongodb://localhost:27017/aparecida
+   ```
+3. Execute o comando do Maven para rodar a aplicação:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. A aplicação estará disponível em [http://localhost:8080](http://localhost:8080).
 
-POST /Usuario/login - Realiza login no aplicativo.
+---
 
+## Endpoints
 
-POST /Usuario - Registra um novo usuário no aplicativo.
-```
+### **Usuário**
 
-## Autenticação
-A API utiliza o Spring Security para controle de autenticação. As seguintes funções estão disponíveis:
+- **Registrar Usuário**  
+  `POST /Usuario`  
+  Descrição: Registra um novo usuário.  
 
-```
-USER -> Função padrão para usuários logados.
-ADMIN -> Função de administrador para gerenciar parceiros (registrar novos parceiros).
-```
+- **Login**  
+  `POST /Usuario/login`  
+  Descrição: Realiza o login na aplicação.  
+
+---
+
+### **Assentos**
+
+- **Listar Todos os Assentos**  
+  `GET /assentos`  
+  Descrição: Recupera a lista de todos os assentos disponíveis.
+
+- **Reservar Assento**  
+  `POST /assentos/{id}/reservar`  
+  Descrição: Faz a reserva de um assento.
+
+- **Excluir Assento**  
+  `DELETE /assentos/excluir`  
+  Descrição: Remove um assento.
+
+- **Criar Assento**  
+  `POST /assentos/criar`  
+  Descrição: Adiciona um novo assento.
+
+---
+
+### **Compras**
+
+- **Criar Compra**  
+  `POST /compras`  
+  Descrição: Cria um registro de compra.  
+
+- **Listar Compras**  
+  `GET /compras`  
+  Descrição: Recupera todas as compras.  
+
+- **Consultar Compra por ID**  
+  `GET /compras/{id}`  
+  Descrição: Recupera os detalhes de uma compra específica.  
+
+- **Atualizar Compra**  
+  `PUT /compras/{id}`  
+  Descrição: Atualiza os dados de uma compra específica.  
+
+- **Excluir Compra**  
+  `DELETE /compras/{id}`  
+  Descrição: Remove uma compra pelo ID.  
+
+---
+
+### **Coordenadores**
+
+- **Listar Coordenadores**  
+  `GET /coordenadores`  
+  Descrição: Recupera a lista de coordenadores.  
+
+- **Criar Coordenador**  
+  `POST /coordenadores`  
+  Descrição: Adiciona um novo coordenador.  
+
+- **Consultar Coordenador por ID**  
+  `GET /coordenadores/{id}`  
+  Descrição: Obtém detalhes de um coordenador específico.  
+
+- **Atualizar Coordenador**  
+  `PUT /coordenadores/{id}`  
+  Descrição: Atualiza as informações de um coordenador.  
+
+- **Excluir Coordenador**  
+  `DELETE /coordenadores/{id}`  
+  Descrição: Remove um coordenador pelo ID.  
+
+---
+
+### **Ônibus**
+
+- **Listar Ônibus**  
+  `GET /onibus/onibus`  
+  Descrição: Recupera todos os ônibus cadastrados.  
+
+- **Consultar Ônibus por ID**  
+  `GET /onibus/{id}`  
+  Descrição: Obtém detalhes de um ônibus específico.  
+
+- **Criar Ônibus**  
+  `POST /onibus`  
+  Descrição: Adiciona um novo ônibus.  
+
+- **Atualizar Ônibus**  
+  `PUT /onibus/{id}`  
+  Descrição: Atualiza as informações de um ônibus.  
+
+- **Excluir Ônibus**  
+  `DELETE /onibus/{id}`  
+  Descrição: Remove um ônibus pelo ID.  
+
+---
+
+### **Contato e Newsletter**
+
+- **Criar Contato**  
+  `POST /contato`  
+  Descrição: Adiciona um novo registro de contato.
+
+- **Excluir Contato por ID**  
+  `DELETE /contato/{id}`  
+  Descrição: Remove um contato pelo ID.
+
+- **Criar Newsletter**  
+  `POST /newsletter`  
+  Descrição: Adiciona um novo cadastro para newsletter.
+
+---
+
 ## Banco de Dados
-O projeto utiliza o [PostgresSQL](https://www.postgresql.org/) como banco de dados.
-#
->>>>>>> mude as configuraçoes do banco em application.proerties
----------------------------------------------------------------------------------------------------------------
 
+A API migrou para o banco de dados **MongoDB**. Todas as configurações necessárias devem ser ajustadas no arquivo `application.properties`.
 
-## Entidades e relacionamentos:
+---
 
-### Entidades (Tabelas)
-- Usuario: Representa os usuários do sistema, que podem ser administradores ou coordenadores.
-- Onibus: Representa os ônibus da frota.
-- Poltrona: Representa as poltronas dentro de cada ônibus.
-- Passageiro: Representa os passageiros que utilizam o serviço.
-- Passagem: Representa as passagens compradas pelos passageiros.
-- ListaEspera: Representa a lista de espera para as passagens.
-- Embarque: Representa o processo de embarque dos passageiros.
-### Relacionamentos
-- usuario e Onibus: Um coordenador (tipo de usuário) é responsável por um ou mais ônibus. Relação de um para muitos.
-- Onibus e Poltrona: Um ônibus possui muitas poltronas. Relação de um para muitos.
-- Poltrona e Passagem: Uma poltrona pode ser reservada por uma única passagem. Relação de um para um.
-- Passageiro e Passagem: Um passageiro pode comprar várias passagens. Relação de um para muitos.
-- Passagem e ListaEspera: Uma passagem pode estar na lista de espera. Relação de um para muitos.
-- Passagem e Embarque: Uma passagem pode ter um embarque associado. Relação de um para um.
-
-
-
----------------------------------------------------------------------------------------------------------------
-
-
-
-## Formulario de pagamentos
-
-
-## Endpoints
-
-### **1. Criar uma nova venda (POST)**
-
-**URL**: `localhost:8080/compras`
-
-**Método HTTP**: `POST`
-
-**Body da Requisição**:
-
-```json
-{
-  "nomec": "joao",
-  "endereco": "Rua das Flores, 123",
-  "numero": "123",
-  "cep": "12345678",
-  "assento": "A12",
-  "metodoPagamento": "Cartão de Crédito",
-  "nomeVendedor": "Carlos Souza",
-  "dataCompra": "2024-11-16",
-  "horarioCompra": "14:30:00",
-  "valorPago": 250.75,
-  "cpf": "22345678901",
-  "onibus": "22331dsd",
-  "status": "cancelado"
-}
-```
-
-
-###Consultar, Atualizar ou Deletar uma venda (GET/PUT/DELETE)
-
-
-URL: localhost:8080/compras/{id}
-
-Método HTTP: GET, PUT, DELETE
-
-Parâmetros:
-
-{id}: ID único da venda, que pode ser obtido após a criação de uma nova venda.
-
-GET: Consultar uma venda
-Descrição: Recupera os detalhes da venda correspondente ao ID fornecido.
-
-PUT: Atualizar uma venda
-Descrição: Atualiza os detalhes de uma venda existente. Os parâmetros a serem atualizados devem ser passados no corpo da requisição.
-
-DELETE: Deletar uma venda
-Descrição: Remove o registro de venda correspondente ao ID fornecido.
-
-
-------------------------------------------------------------------------------------
-
-## Coordenador
-
-## Endpoints
-
-### 1. **Criar Coordenador (POST)**
-
-**URL**: `/coordenadores`
-
-**Método**: `POST`
-
-**Descrição**: Cria um novo coordenador.
-
-**Exemplo de Requisição (Body)**:
-
-```json
-{
-   {
-        
-        "nomeco": "Ricardo",
-        "numero_contato": "33333333333333",
-        "foto": "/coordenadores_fotos/silhueta.jpg",
-        "modelo": "Scania",
-        "onibus_placa": "ABC5678",
-        "numero_assentos": 50
-    },
-}
